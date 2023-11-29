@@ -75,9 +75,9 @@ const App = () => {
           <div className="flex justify-between items-center">
             <div className="feedback-rate">
               {isCorrect === "correct" ? (
-                <p className="text-[#4dce41] ">Prevous quizz: Correct!</p>
+                <p className="text-[#4dce41] ">Previous quizz: Correct!</p>
               ) : isCorrect === "incorrect" ? (
-                <p className="text-[#ea575b] ">Prevous quizz: Incorrect!</p>
+                <p className="text-[#ea575b] ">Previous quizz: Incorrect!</p>
               ) : (
                 ""
               )}
