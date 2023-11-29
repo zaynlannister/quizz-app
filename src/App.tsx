@@ -43,6 +43,7 @@ const App = () => {
 
   const handleSubmit = () => {
     setNumber(number + 1);
+    setValue("");
     if (value === mockQuestions[number].correct_answer) {
       setCorrectAnswersNumber(correctAnswersNumber + 1);
       setIsCorrect("correct");
@@ -63,6 +64,8 @@ const App = () => {
   const handleTryAgain = () => {
     setNumber(0);
     setIsCorrect("");
+    setValue("");
+    setCorrectAnswersNumber(0);
   };
   return (
     <StyledApp>
@@ -91,6 +94,7 @@ const App = () => {
                 onChange={handleInputChange}
                 type="radio"
                 name={`option-${number}`}
+                checked={item === value}
                 value={item}
                 id={`option-${index}`}
               />
@@ -99,7 +103,11 @@ const App = () => {
           ))}
 
           <div className="flex justify-end">
-            <button className="button" onClick={handleSubmit}>
+            <button
+              disabled={value === ""}
+              className={`button ${value === "" ? "disabled" : ""}`}
+              onClick={handleSubmit}
+            >
               Submit
             </button>
           </div>
@@ -150,6 +158,10 @@ const StyledApp = styled.div`
     &:hover {
       background-color: #296bb0;
     }
+  }
+
+  .button.disabled {
+    background-color: #7e8fa0;
   }
 `;
 
