@@ -53,7 +53,8 @@ const App = () => {
   };
 
   const handleInputChange = (event: any) => {
-    setValue(event.target.value);
+    const selectedValue = event.target.value;
+    setValue(selectedValue);
   };
 
   const isFinished = () => {
