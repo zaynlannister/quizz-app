@@ -91,7 +91,7 @@ const App = () => {
           </p>
           {mockQuestions[number].options.map((item, index) => (
             <div
-              data-aos="fade-left"
+              // data-aos="fade-left"
               key={index}
               className="option flex items-center py-1"
             >
