@@ -89,23 +89,21 @@ const App = () => {
           <p data-aos="fade-right" className="mb-2 text-[18px]">
             Question: {mockQuestions[number].question}
           </p>
-          {mockQuestions[number].options.map((item, index) => (
-            <div
-              // data-aos="fade-left"
-              key={index}
-              className="option flex items-center py-1"
-            >
-              <input
-                onChange={handleInputChange}
-                type="radio"
-                name={`option-${number}`}
-                checked={item === value}
-                value={item}
-                id={`option-${index}`}
-              />
-              <label htmlFor={`option-${index}`}>{item}</label>
-            </div>
-          ))}
+          <div data-aos="fade-left">
+            {mockQuestions[number].options.map((item, index) => (
+              <div key={index} className="option flex items-center py-1">
+                <input
+                  onChange={handleInputChange}
+                  type="radio"
+                  name={`option-${number}`}
+                  checked={item === value}
+                  value={item}
+                  id={`option-${index}`}
+                />
+                <label htmlFor={`option-${index}`}>{item}</label>
+              </div>
+            ))}
+          </div>
 
           <div data-aos="fade-right" className="flex justify-end">
             <button
