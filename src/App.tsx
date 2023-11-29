@@ -43,7 +43,6 @@ const App = () => {
 
   const handleSubmit = () => {
     setNumber(number + 1);
-
     if (value === mockQuestions[number].correct_answer) {
       setCorrectAnswersNumber(correctAnswersNumber + 1);
       setIsCorrect("correct");
@@ -61,6 +60,10 @@ const App = () => {
     else return false;
   };
 
+  const handleTryAgain = () => {
+    setNumber(0);
+    setIsCorrect("");
+  };
   return (
     <StyledApp>
       {!isFinished() ? (
@@ -87,7 +90,7 @@ const App = () => {
               <input
                 onChange={handleInputChange}
                 type="radio"
-                name="option"
+                name={`option-${number}`}
                 value={item}
                 id={`option-${index}`}
               />
@@ -102,11 +105,14 @@ const App = () => {
           </div>
         </>
       ) : (
-        <div className="feedback">
+        <div className="feedback py-8">
           <p className="text-[20px] text-center mb-4">You finished Quizzes!</p>
-          <p>
+          <p className="mb-4">
             Correct answers: {correctAnswersNumber}/{mockQuestions.length}
           </p>
+          <button onClick={handleTryAgain} className="button">
+            Try again
+          </button>
         </div>
       )}
     </StyledApp>
@@ -120,7 +126,7 @@ const StyledApp = styled.div`
   top: 25%;
   left: 50%;
   transform: translate(-50%, 0);
-  padding: 20px;
+  padding: 30px 20px;
   border: 1px solid silver;
   border-radius: 4px;
   font-weight: bold;
