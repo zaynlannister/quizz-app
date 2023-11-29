@@ -81,15 +81,19 @@ const App = () => {
                 ""
               )}
             </div>
-            <p className="text-center mb-2">
+            <p data-aos="fade-up" className="text-center mb-2">
               Question {number + 1}/{mockQuestions.length}
             </p>
           </div>
-          <p className="mb-2 text-[18px]">
+          <p data-aos="fade-right" className="mb-2 text-[18px]">
             Question: {mockQuestions[number].question}
           </p>
           {mockQuestions[number].options.map((item, index) => (
-            <div key={index} className="option flex items-center py-1">
+            <div
+              data-aos="fade-left"
+              key={index}
+              className="option flex items-center py-1"
+            >
               <input
                 onChange={handleInputChange}
                 type="radio"
@@ -102,7 +106,7 @@ const App = () => {
             </div>
           ))}
 
-          <div className="flex justify-end">
+          <div data-aos="fade-right" className="flex justify-end">
             <button
               disabled={value === ""}
               className={`button ${value === "" ? "disabled" : ""}`}
